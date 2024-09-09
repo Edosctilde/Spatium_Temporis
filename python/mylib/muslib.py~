@@ -1,0 +1,129 @@
+#ATTENZIONE TRATTARE I VALORI SEGUENTI COME COSTANTI PER IL FUNZIONAMENTO DEL PROGRAMMA
+#definisco le srtnghe che dicono a csound se l'inviluppo è diretto o inverso
+direct = 1
+reverse = 0
+AudioMaxLen = 9    #durata massima dei campioni audio utlizzati
+NoneType = type(None)
+#--------------------------------------------------------#
+#FUNZIONI
+def gestione_spazio(tempo, spazio):
+    #se non viene indicato nessun valore per lo spazio in particolare lo pone come il tempo +90 (sfasamento di 90 gradi del valore)
+    if spazio is None:
+        pos = tempo + 90
+    elif spazio is not None:
+        pos = spazio
+    return pos
+
+
+def segmentazione_durata(dur, segmentazione):
+    #segmenta la durata dell'evento sonoro
+    if segmentazione is None:
+        tempi = []
+        for i in range(int(dur/AudioMaxLen)):
+            tempi.append(AudioMaxLen)
+        if dur%AudioMaxLen != 0:
+            tempi.append(dur%AudioMaxLen)
+    elif segmentazione is not None:
+        tempi = segmentazione
+    return tempi
+
+
+def element_to_array(item, lung):
+    #riempire un array con lung elementi di item
+    array = []
+    for i in range(lung):
+        array.append(item)
+    return array
+                                                               
+                                                                 #FARE SI CHE SE SI PASSA UN PARAMETO RAND VENGONO SCELTI DEI VALORI A CAZZO
+def check_ea(item, lung):
+    #controlla se item è un e(lemento) o un a(rray)
+    #per necessità compositive se il caso è il primo poi lo converte in un array di se stesso
+    if (type(item) is int) or (type(item) is float) or (type(item) is NoneType):
+        newrray = element_to_array(item, lung)
+    elif type(item) is list:
+        newrray = item
+    return newrray
+        
+#CLASSI
+#definisco la classe base
+class inst():
+    def __init__(self, nomeFile, envDirection):
+        self.nomeFile = nomeFile
+        self.dir = envDirection
+        
+    def play(self, when, dur, f, bw, vol, where = None, df = 0):
+        
+        alpha = gestione_spazio(when, where)
+        print("i1 %f %f \"../audioFiles/%s.wav\" %f %f %f %f %f %f" %(when, dur, self.nomeFile, f, bw, alpha, vol, df, self.dir))
+        
+        return when+dur
+
+    def long_play(self, when, dur, f, bw, vol, where = None, df = 0, segmentazione = None):
+        #la funzione serve a generare fasce sonore + lunghe di AudioMaxLen
+        durate = segmentazione_durata(dur, segmentazione)
+                                                                                             #DA AGGIUSTARE IL GLISSANDO con df
+        for n in range(len(durate)):
+            when = self.play(when, durate[n], f, bw, vol, where, df)
+            
+            """ NOTA:CREARE SIA NELLA FUNZIONE seq CHE IN QUELLA long_play UN MODO
+            DI OVERLAP PER NON FARE CHE GLI ELEMENTI SIANO TRA DI LORO STACCATI
+            """
+#Ora la classe che riproduce in sequenza gli elementi
+class seq():
+    def __init__(self, sequenza, pesi):
+        self.sequenza = sequenza
+        self.pesi = pesi
+        
+    def play(self, when, f, bw, vol, where = None, df = 0, dt = 1):
+        #dt è l'unità temporale
+        lung = len(self.sequenza)
+        f = check_ea(f, lung)
+        bw = check_ea(bw, lung)
+        vol = check_ea(vol, lung)
+        where = check_ea(where, lung)
+        df = check_ea(df, lung)
+        for n in range(lung):
+            if self.pesi[n]*dt > AudioMaxLen:
+                when = self.sequenza[n].long_play(when, self.pesi[n]*dt, f[n], bw[n], vol[n], where[n], df[n])
+            elif self.pesi[n]*dt < AudioMaxLen:
+                when = self.sequenza[n].play(when, self.pesi[n]*dt, f[n], bw[n], vol[n], where[n], df[n])
+        return when
+    
+#definisco gli strumenti per ogni file che ho
+bianco = inst("b", direct)
+giallo = inst("g", direct)
+rosso = inst("r", direct)
+azzurro = inst("a", direct)
+nero = inst("n", direct)
+
+
+
+#ALTRE FUNZIONI
+
+def nuvola( inst,when, dur, n, f, bw, vol, df = 50, overlap=2, dyn = None, dir = None):
+    dt = dur/n/overlap
+    tbkp = when
+    
+    
+    for i in range(n):
+        if dyn is None:
+            v = vol
+        elif dyn is not None:
+            v = line(dur, when-tbkp, vol, dyn)
+        dv = v/overlap
+        if dir is None:
+            r = randint(0,1)
+            dir = r-(1-r)
+        elif dir is not None:
+            dir = dir
+        freq = randint(f-df, f+df)
+        inst.play(when, dt*overlap, freq, bw, dv, alpha = when+90, df = df*dir)
+        when += dt
+    return when
+
+
+def line(dt, x, y0, y1):
+    a = (y1-y0)/dt
+    b = y0
+    return a * x + b

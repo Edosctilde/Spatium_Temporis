@@ -1,0 +1,14 @@
+sr = 44100
+kr = 1024
+0dbfs = 1
+nchnls = 1
+
+instr 1
+
+      
+      aS_in diskin2 p4
+      aS_1 butbp aS_in, 1200, 10
+      
+      outs aS_in - (aS_1*3)
+      
+endin
