@@ -3,11 +3,11 @@ from cost import *
 from funz import *
 #set della direzione dellìinviluppo INVERSA
 directionOfEnv = reverse
-bianco.envDirection = directionOfEnv
-giallo.envDirection = directionOfEnv
-rosso.envDirection = directionOfEnv
-azzurro.envDirection = directionOfEnv
-nero.envDirection = directionOfEnv
+bianco.dir = directionOfEnv
+giallo.dir = directionOfEnv
+rosso.dir = directionOfEnv
+azzurro.dir = directionOfEnv
+nero.dir = directionOfEnv
 
 #inzio partitura
 T = 0
@@ -15,6 +15,8 @@ T = 0
 Seq = seq([nero, azzurro, bianco, azzurro, rosso, giallo, bianco, rosso, bianco],
           [5,    10,      2,      3,       5,     2,      1,      7,     4])
 
+azzurro.play(T, 10, 60, 70, 0.02)
+T = 9
 #hf
 Seq.play(T, [cRnd, 20, 600], 150, [cLin, 0.05, 0.2], dt = 2)
 #lf
