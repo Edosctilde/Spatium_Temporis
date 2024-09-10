@@ -1,21 +1,21 @@
 PY = python
 CS = csound
 
-all: uno_b uno main_a main_b ss Up
+all: a1a a2a a1b ss
 
-UP: $(PY)/Up.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py 
-	$(PY)3 $(PY)/Up.py > $(CS)/scoUp.sco
-	$(CS) $(CS)/orc.orc $(CS)/scoUp.sco -o results/Up
-
-
-uno: $(PY)/uno.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py 
-	$(PY)3 $(PY)/uno.py > $(CS)/scouno.sco
-	$(CS) $(CS)/orc.orc $(CS)/scouno.sco -o results/uno
+a2a: $(PY)/a2a.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py 
+	$(PY)3 $(PY)/a2a.py > $(CS)/scoa2a.sco
+	$(CS) $(CS)/orc.orc $(CS)/scoa2a.sco -o results/a2a
 
 
-uno_b: $(PY)/uno_b.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py 
-	$(PY)3 $(PY)/uno_b.py > $(CS)/scouno_b.sco
-	$(CS) $(CS)/orc.orc $(CS)/scouno_b.sco -o results/uno_b
+a1a: $(PY)/a1a.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py 
+	$(PY)3 $(PY)/a1a.py > $(CS)/scoa1a.sco
+	$(CS) $(CS)/orc.orc $(CS)/scoa1a.sco -o results/a1a
+
+
+a1b: $(PY)/a1b.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py 
+	$(PY)3 $(PY)/a1b.py > $(CS)/scoa1b.sco
+	$(CS) $(CS)/orc.orc $(CS)/scoa1b.sco -o results/a1b
 
 
 main_a: $(PY)/main_a.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py 
