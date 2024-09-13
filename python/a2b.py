@@ -25,4 +25,4 @@ Seqb = seq([azzurro, rosso, azzurro, rosso, giallo, bianco], [3.17, 2, 4.2, 3.4,
 T = 108+9
 
 #Seqa.play(T, [cRnd, 400, 450], 100, [0.05, 0.2, 0.1, 0.15], dt = 0.3)
-T = Seqb.play(T , [680, 690, 620, 640, 580, 560], 50, [cLin, 0.12, 0.5], legato = True)
+T = Seqb.play(T , [680, 690, 620, 640, 580, 560], 50, [cLin, 0.12, 0.5], dt = 1.3,legato = True)

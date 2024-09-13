@@ -7,7 +7,7 @@ def line(dt, x, y0, y1):
     return a * x + b
 
 
-def osc(colore, when, dur, f, bw, vol, fmod, where = None, df = 0):
+def osc(colore, when, dur, f, bw, vol, fmod, where = None, df = 0, whole = 1):
     nTotosc = int(fmod*dur)
     lung = nTotosc
     f = check_ea(f, lung)
@@ -16,9 +16,10 @@ def osc(colore, when, dur, f, bw, vol, fmod, where = None, df = 0):
     where = check_ea(where, lung)
     df = check_ea(df, lung)
     for n in range(nTotosc):
-        colore.play(when, 1.2/fmod, f[n], bw[n], vol[n], where[n], df[n])
+        colore.play(when, 1.1*whole/fmod, f[n], bw[n], vol[n], where[n], df[n])
         when += 1/fmod
     return when
+
 
 def gestione_spazio(tempo, spazio):
     #se non viene indicato nessun valore per lo spazio in particolare lo pone come il tempo +90 (sfasamento di 90 gradi del valore)

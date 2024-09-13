@@ -74,7 +74,19 @@ class seq():
             n += 1
         return when
 
-    
+    def oscil(self, when, dur, f, bw, vol, fmod, where = None, df = 0, whole = 1):
+        lung = len(self.sequenza)
+        f = check_ea(f, lung)
+        bw = check_ea(bw, lung)
+        vol = check_ea(vol, lung)
+        where = check_ea(where, lung)
+        df = check_ea(df, lung)
+        fmod = check_ea(fmod, lung)
+        for n in range(lung):           
+            osc(sequenza[n], when, durate[n]*dt, f[n], bw[n], vol[n], fmod[n], where[n], df[n])
+            when += self.pesi[n]*dt
+        return when
+        
     def eForma(self, when, f, bw, vol, nosc, where = None, df = 0, dt = 1, legato = True):
         #dt è l'unità temporale
         lung = len(self.sequenza)
@@ -84,8 +96,7 @@ class seq():
         where = check_ea(where, lung)
         df = check_ea(df, lung)
         #nosc = check_ea(
-        for n in range(lung):
-            
+        for n in range(lung):           
             self.sequenza[n].play(when, durate[n]*dt, f[n], bw[n], vol[n], where[n], df[n])
             when += self.pesi[n]*dt
         return when

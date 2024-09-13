@@ -15,7 +15,7 @@ Seq = seq([bianco, rosso, bianco, azzurro, rosso],
           [6, 4, 0.4, 5, 9])
 Seq2 = seq([azzurro, bianco, giallo, rosso, nero, azzurro], [2, 1, 1, 1, 1, 1.5])
 #inzio partitura
-T = 9
+T = 50
 osc(nero, T, 5, 120, 10, [cLin, 0.01, 0.02], 2)
 Seq.play(T, [10300, 10500, 10000, 10500, 10200, 10300], 650, 0.01, df = [cRnd, -500, 500], dt = 1)
 Seq2.play(T, [13300, 13500, 13000, 13500, 13200, 13300], 150, 0.005, df = [cRnd, -500, 500], dt = 1)
