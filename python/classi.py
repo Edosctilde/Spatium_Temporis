@@ -28,8 +28,8 @@ class inst():
             self.play(when, dur, newf, bw, vol, where, newdf)
             when += durate[n]
         return when
-
-            
+#
+#      
 #Ora la classe che riproduce in sequenza gli elementi
 class seq():
     def __init__(self, sequenza, pesi):
@@ -56,7 +56,24 @@ class seq():
                 self.sequenza[n].play(when, durate[n]*dt, f[n], bw[n], vol[n], where[n], df[n])
                 when += self.pesi[n]*dt
         return when
-    
+
+    def osc(self, when, f, bw, vol, noscil, where = None, df = 0, dt = 1, legato = True):
+        lung = len(self.sequenza)
+        f = check_ea(f, lung)
+        bw = check_ea(bw, lung)
+        vol = check_ea(vol, lung)
+        where = check_ea(where, lung)
+        df = check_ea(df, lung)
+        noscil = check_ea(noscil, lung)
+        if legato:
+            durate = [i*6/5 for i in self.pesi]
+        else:
+            durate = self.pesi
+        for n in range(lung):         
+            osc(self.sequenza[n], when, self.pesi[n]*dt, f[n], bw[n], vol[n], noscil[n], where[n], df[n])
+            when += self.pesi[n]*dt
+        return when
+"""   
     def tronca(self, when, dur, f, bw, vol, where = None, df = 0, dt = 1):
         lung = len(self.sequenza)
         f = check_ea(f, lung)
@@ -73,19 +90,6 @@ class seq():
                 when = self.sequenza[n].play(when, self.pesi[n]*dt, f[n], bw[n], vol[n], where[n], df[n])
             n += 1
         return when
-
-    def oscil(self, when, dur, f, bw, vol, fmod, where = None, df = 0, whole = 1):
-        lung = len(self.sequenza)
-        f = check_ea(f, lung)
-        bw = check_ea(bw, lung)
-        vol = check_ea(vol, lung)
-        where = check_ea(where, lung)
-        df = check_ea(df, lung)
-        fmod = check_ea(fmod, lung)
-        for n in range(lung):           
-            osc(sequenza[n], when, durate[n]*dt, f[n], bw[n], vol[n], fmod[n], where[n], df[n])
-            when += self.pesi[n]*dt
-        return when
         
     def eForma(self, when, f, bw, vol, nosc, where = None, df = 0, dt = 1, legato = True):
         #dt è l'unità temporale
@@ -100,7 +104,7 @@ class seq():
             self.sequenza[n].play(when, durate[n]*dt, f[n], bw[n], vol[n], where[n], df[n])
             when += self.pesi[n]*dt
         return when
-
+"""
         
 #definisco gli strumenti per ogni file che ho
 bianco = inst("b", direct, 0.5)
@@ -108,3 +112,13 @@ giallo = inst("g", direct, 0.5)
 rosso = inst("r", direct, 0.5)
 azzurro = inst("a", direct, 0.5)
 nero = inst("n", direct, 0.5)
+
+colors = [nero, azzurro, rosso, giallo, bianco]
+
+def setup(envdir, modul):
+    envdir = check_ea(envdir, 5)
+    modul = check_ea(modul, 5)
+    for i in range(5):
+        colors[i].dir = envdir[i]
+        colors[i].mod = modul[i]
+        

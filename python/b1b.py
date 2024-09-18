@@ -12,8 +12,8 @@ nero.dir = directionOfEnv
 Seq = seq([azzurro, bianco, giallo], [3,2,1])
 Seqb = seq([rosso, nero, bianco], [1,2,3])
 #inizio partitura
-T = 142.7 
-durtot = 36
+T = 153 
+durtot = 51
 dil = 0.3
 n = int(durtot/(6*dil))
 

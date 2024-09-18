@@ -2,22 +2,11 @@ from classi import *
 from cost import *
 from funz import*
 #set della direzione dell'inviluppo DIRETTA
-directionOfEnv = direct
-bianco.dir = directionOfEnv
-giallo.dir = directionOfEnv
-rosso.dir = directionOfEnv
-azzurro.dir = directionOfEnv
-nero.dir = directionOfEnv
-mod = 0.1
-bianco.mod = mod
-giallo.mod = mod
-rosso.mod = mod
-azzurro.mod = mod
-nero.mod = mod
+setup(direct, 0.1)
 #dati
-Seq1 = seq([nero, azzurro, giallo, bianco], [20, 6, 12, 6])
-Seq2 = seq([nero, azzurro, rosso, giallo, bianco], [1, 1, 1, 1, 1])
-Seq3 = seq([azzurro, rosso, azzurro, rosso], [2, 1, 1.5, 2])
+Seq1 = seq([nero, azzurro, giallo, bianco], [20, 6, 12, 6])#44
+Seq2 = seq([nero, azzurro, rosso, giallo, bianco], [1, 1, 1, 1, 1])#5
+Seq3 = seq([azzurro, rosso, azzurro, rosso], [2, 1, 1.5, 2])#6.5
 trasl = 41.93+9
 #-----------------------------------#
 #inizio
@@ -43,6 +32,10 @@ Seq3.play(T, [cRnd, 450, 550], 60, [cLin, 0.2, 0.15])
 Seq1.play(T, [cRnd, 400, 450], 100, [0.05, 0.2, 0.1, 0.15], dt = 0.3)
 T = Seq3.play(T , [cRnd, 660, 700], 50, [cLin, 0.05, 0.12], dt = 3)
 
-#soffio
-#Seq2.play(T, [cRnd, 500, 660], 50, [cLin, 0.1, 0.3], dt = 4)
+T = 204
+#39
+setup(reverse, 9)
+Seq1.play(T, [cRnd, 10500, 15000], 500, 0.1, df = [cLin, 600, 40], dt = 39/44)
+Seq2.play(T, [cRnd, 2030, 2160], 50, [cLin, 0.05, 0.1], dt = 39/5)
+Seq3.play(T, [cRnd, 3450, 3550], 60, [cLin, 0.2, 0.15], dt = 39/6.5)
 

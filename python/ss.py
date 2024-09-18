@@ -16,4 +16,14 @@ Seq2.play(39.8+9, [cRnd, 100, 150], 500, 0.1, df = [100, 250, 500, 750, 1000], d
 
 Seq1.play(55.7+9, [cRnd, 100, 150], 500, 0.1, df = [cLin, 600, 40], dt = 0.006)
 Seq2.play(107.6+9, [cLin, 200, 100], 200, 0.1, df = [cLin, 100, 0], dt = 0.1)
-Seq2.play(168.6, [cRnd, 100, 150], 500, 0.4, df = [100, 250, 500, 750, 1000], dt = 0.06)
+
+Seq2.play(203.9, [cLin, 140, 1450], 500, 0.22, df = (1450-140)/5, dt = 0.06)
+Seq2.play(203.9, [cLin, 140, 50], 50, 0.22, df = -18, dt = 0.06)
+
+#leading and leaving climax
+setup(reverse, 0.5)
+dur = 18
+for i in range(dur-1):
+    nero.play(204-dur+(i+1), 2, 140, 10*(i+1), 0.02*(i+1))
+setup(direct, 13)
+nero.play(204, 39/2, 140, 200, 0.15)

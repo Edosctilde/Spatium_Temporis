@@ -1,23 +1,24 @@
 from cost import *
 from random import *
 
+
 def line(dt, x, y0, y1):
     a = (y1-y0)/dt
     b = y0
     return a * x + b
 
 
-def osc(colore, when, dur, f, bw, vol, fmod, where = None, df = 0, whole = 1):
-    nTotosc = int(fmod*dur)
-    lung = nTotosc
+def osc(colore, when, dur, f, bw, vol, noscil, where = None, df = 0):
+    lung = noscil
+    unitDur = dur/noscil
     f = check_ea(f, lung)
     bw = check_ea(bw, lung)
     vol = check_ea(vol, lung)
     where = check_ea(where, lung)
     df = check_ea(df, lung)
-    for n in range(nTotosc):
-        colore.play(when, 1.1*whole/fmod, f[n], bw[n], vol[n], where[n], df[n])
-        when += 1/fmod
+    for n in range(lung):
+        colore.play(when, 1.1*unitDur, f[n], bw[n], vol[n], where[n], df[n])
+        when += unitDur
     return when
 
 

@@ -23,7 +23,12 @@ Seq = seq([nero, azzurro, bianco, azzurro, rosso, giallo, bianco, rosso, bianco]
 azzurro.play(T, 10, 60, 70, 0.05)
 T = 9
 #hf
-Seq.play(T, [cRnd, 20, 600], 150, [cLin, 0.05, 0.2], dt = 2)
+Seq.play(T, [cRnd, 20, 600], 150, [cLin, 0.02, 0.2], dt = 2)
 #lf
-Seq.play(T, [cRnd, 10, 100], 50, [cLin, 0.02, 0.1], dt = 2)
-#vedi se mettere un booost a inizio sulle basse, magari in partenza
+Seq.play(T, [cRnd, 10, 100], 50, [cLin, 0.01, 0.1], dt = 2)
+
+T = 204
+setup(direct, 5)
+Seq.play(T, [cRnd, 400, 600], 250, [cRnd, 0.05, 0.1], where = 180)
+#lf
+Seq.play(T, [cRnd, 10, 100], 90, [cRnd, 0.05, 0.1], where = [cRnd, 90, 180])
