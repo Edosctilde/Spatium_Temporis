@@ -2,7 +2,7 @@ from classi import *
 from cost import *
 from funz import*
 #set della direzione dell'inviluppo DIRETTA
-setup(direct, 0.1)
+setup(direct, [cRnd, 0.05, 0.3])
 #dati
 Seq1 = seq([nero, azzurro, giallo, bianco], [20, 6, 12, 6])#44
 Seq2 = seq([nero, azzurro, rosso, giallo, bianco], [1, 1, 1, 1, 1])#5
@@ -39,3 +39,7 @@ Seq1.play(T, [cRnd, 10500, 15000], 500, 0.1, df = [cLin, 600, 40], dt = 39/44)
 Seq2.play(T, [cRnd, 2030, 2160], 50, [cLin, 0.05, 0.1], dt = 39/5)
 Seq3.play(T, [cRnd, 3450, 3550], 60, [cLin, 0.2, 0.15], dt = 39/6.5)
 
+T = 277
+Seq1.play(T, [cRnd, 10500, 15000], 500, [cLin, 0.08, 0.001], df = [cLin, 600, 40], dt = 14/44)
+Seq2.play(T, [cRnd, 2030, 2160], 50, [cLin, 0.1, 0.002], dt = 9/5)
+Seq3.play(T, [cRnd, 3450, 3550], 60, [cLin, 0.2, 0.002])

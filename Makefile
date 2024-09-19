@@ -1,7 +1,7 @@
 PY = python
 CS = csound
 
-all: a1a a2a a1b a2b b1a b1b b2a b2b ss
+all: a1a a2a a1b a2b b1a b1b b2a b2b c1a c1b ss
 
 a2a: $(PY)/a2a.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py 
 	$(PY)3 $(PY)/a2a.py > $(CS)/scoa2a.sco
@@ -43,3 +43,7 @@ ss: $(PY)/ss.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py
 c1a: $(PY)/c1a.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py 
 	$(PY)3 $(PY)/c1a.py > $(CS)/scoc1a.sco
 	$(CS) $(CS)/orc.orc $(CS)/scoc1a.sco -o Media/c1a
+
+c1b: $(PY)/c1b.py $(CS)/orc.orc $(PY)/classi.py $(PY)/cost.py $(PY)/funz.py 
+	$(PY)3 $(PY)/c1b.py > $(CS)/scoc1b.sco
+	$(CS) $(CS)/orc.orc $(CS)/scoc1b.sco -o Media/c1b

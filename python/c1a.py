@@ -13,3 +13,10 @@ T = 221
 Seql.play(T, [cRnd, 200, 1200], 100, [cLin, 0.03, 0.08])
 Seqm.play(T+3, [cRnd, 3000, 6000], 300, [cLin, 0.03, 0.08])
 Seqh.play(T+6, [cRnd, 10000, 13000], 200, [cLin, 0.03, 0.08])
+
+
+T = 277
+
+Seql.play(T, [cRnd, 200, 1200], 100, [cLin, 0.08, 0.01])
+Seqm.play(T, [cRnd, 3000, 6000], 300, [cLin, 0.08, 0.01])
+Seqh.play(T, [cRnd, 10000, 13000], 200, [cLin, 0.08, 0.01])

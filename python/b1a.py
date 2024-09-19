@@ -33,3 +33,10 @@ Seql.play(T, [cRnd, 100, 400], 150, [cRnd, 0.05, 0.1], dt = 39/49)
 setup(reverse, [cRnd, 3, 9])
 Seqm.play(T, [cRnd, 1120, 1400], 300, [cRnd, 0.06, 0.1], df = [cRnd, -500, 500], dt = 39/28)
 Seqh.play(T, [cRnd, 9000, 10300], 150, [cRnd, 0.05, 0.08], dt = 39/32)
+
+
+T = 277
+setup(reverse, [cRnd, 3, 9])
+Seql.play(T, [cRnd, 100, 400], 150, [cLin, 0.05, 0.001], dt = 11/49)
+Seqm.play(T, [cRnd, 1120, 1400], 300, [cLin, 0.06, 0.001], df = [cRnd, -500, 500], dt = 15/28)
+Seqh.play(T, [cRnd, 9000, 10300], 150, [cLin, 0.08, 0.001], dt = 6/32)
