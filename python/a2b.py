@@ -10,8 +10,8 @@ Seqa = seq([nero, azzurro, giallo, bianco], [20, 6, 12, 6])
 Seqb = seq([azzurro, rosso, azzurro, rosso, giallo, bianco], [3.17, 2, 4.2, 3.4, 5.6, 6])
 
 T = 117
-
-T = Seqb.play(T , [680, 690, 620, 640, 580, 560], 50, [cLin, 0.12, 0.5], dt = 1.3,legato = True)
+Seqb.play(T , [680, 690, 620, 640, 580, 560], 50, [cLin, 0.06, 0.25], dt = 1.3,legato = True, where = [cRnd, 90, 180])
+T = Seqb.play(T , [680, 690, 620, 640, 580, 560], 50, [cLin, 0.06, 0.25], dt = 1.3,legato = True, where = [cRnd, 0, 90])
 Seqa.play(T, [cRnd, 400, 450], 100, [cLin, 0.2, 0.05], dt = 0.8)
 
 T = 294

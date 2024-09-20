@@ -29,11 +29,11 @@ Seq3.play(T, [cRnd, 1600, 3000], 200, [cRnd, 0.05, 0.1], df = [cRnd, -300, 300],
 T += 7
 setup(direct, [1,3,5,7,9])
 Seq.play(T, [cRnd, 1400, 1700], 100, [cLin, 0.1, 0.15], df = [cRnd, -200, 200], where = 180, dt = 0.16)
-
+"""
 T += 3.5
 setup(reverse, [1,3,5,7,9])
 Seq.play(T, [cRnd, 2400, 2700], 100, [cLin, 0.1, 0.15], df = [cRnd, -200, 200], where = 180, dt = 0.16)
-
+"""
 T = 204
 setup(direct, [3, 4, 7, 12, 9])
 Seq.play(T, [cRnd, 400, 700], 100, [cLin, 0.003, 0.08], df = [cRnd, -200, 200], where = [cRnd, 0, 90], dt = 39/21)

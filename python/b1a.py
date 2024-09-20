@@ -24,7 +24,7 @@ T = 140
 
 setup(reverse, [10, 14, 7, 3, 4])
 Seql.play(T, [cRnd, 100, 400], 150, [cLin, 0.006, 0.1], dt = 0.3)
-Seqm.play(T, [cRnd, 1120, 1400], 300, [cRnd, 0.006, 0.1], df = [cRnd, -500, 500], dt = 0.5)
+Seqm.play(T, [cRnd, 1120, 1400], 300, [cLin, 0.006, 0.06], df = [cRnd, -500, 500], dt = 0.5)
 Seqh.play(T, [cRnd, 9000, 10300], 150, [cLin, 0.005, 0.08], dt = 0.44)
 
 T = 204
@@ -40,3 +40,9 @@ setup(reverse, [cRnd, 3, 9])
 Seql.play(T, [cRnd, 100, 400], 150, [cLin, 0.05, 0.001], dt = 11/49)
 Seqm.play(T, [cRnd, 1120, 1400], 300, [cLin, 0.06, 0.001], df = [cRnd, -500, 500], dt = 15/28)
 Seqh.play(T, [cRnd, 9000, 10300], 150, [cLin, 0.08, 0.001], dt = 6/32)
+
+T = 340
+setup(reverse, [cRnd, 0.5, 3])
+Seql.play(T, [cRnd, 100, 400], 150, [cLin, 0.01, 0.001], dt = 14/49)
+Seqm.play(T, [cRnd, 1120, 1400], 300, [cLin, 0.015, 0.001],  dt = 12/28)
+Seqh.play(T, [cRnd, 9000, 10300], 150, [cLin, 0.01, 0.001], dt = 16/32)
