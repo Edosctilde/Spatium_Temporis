@@ -57,6 +57,15 @@ class seq():
                 when += self.pesi[n]*dt
         return when
 
+    
+    def airsim(self, when, f, bw, vol, ndiram = 5, ddf = 100, where = None, df = 0, dt = 1):
+        self.play(when, f, bw, vol, where, df, dt)
+        durFix = ndiram/sum(self.pesi)
+        for i in range(ndiram):
+            self.play(when+(i/durFix), f, bw, vol, where, df = [cRnd, -ddf, +ddf])
+        return when + (sum(self.pesi)*dt)
+
+        
     def osc(self, when, f, bw, vol, noscil, where = None, df = 0, dt = 1, legato = True):
         lung = len(self.sequenza)
         f = check_ea(f, lung)

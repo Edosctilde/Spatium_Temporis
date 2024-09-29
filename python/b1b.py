@@ -18,6 +18,6 @@ dil = 0.3
 n = int(durtot/(6*dil))
 
 for i in range(n):
-    T = Seq.play(T, [cRnd, 20, 250], 60, 0.06, dt = dil)
+    T = Seq.play(T, [cRnd, 20, 250], 60, 64, dt = dil)
 
 

@@ -20,5 +20,5 @@ dil = 1.5
 n = int(durtot/(6*dil))
 
 for i in range(n):
-    Seqb.play(T, [cRnd, 20, 250], 80, 0.05, where = 180, dt = dil)
-    T = Seq.play(T, [cRnd, 11000, 12500], 100, 0.05, where = 180, dt = dil)
+    Seqb.play(T, [cRnd, 20, 250], 80, 62, where = 180, dt = dil)
+    T = Seq.play(T, [cRnd, 11000, 12500], 100, 55, where = 180, dt = dil)

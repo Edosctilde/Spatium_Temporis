@@ -9,7 +9,8 @@ SeqB = seq([giallo, azzurro, rosso, bianco, giallo, bianco, azzurro], [3, 1, 2.3
 #inizio partitura
 T = 221
 setup(reverse, 0.2)
-T = SeqA.play(T, [cRnd, 9000, 10000], 100, [cLin, 0.01, 0.06])
+T = SeqA.play(T, [cRnd, 9000, 10000], 100, [cLin, 0.001, 0.008], dt = 23/34.5)
+T = SeqB.play(T, [cRnd, 9000, 10000], 100, 0.08, dt = 7.5/16)
 SeqA.play(T, [cRnd, 9000, 10000], 120, [cRnd, 0.04, 0.08])
 T = SeqB.play(T-5, [cRnd, 7000, 10000], 500, [cRnd, 0.02, 0.04])
 SeqA.play(T, [cRnd, 4000, 6000], 120, [cRnd, 0.04, 0.08])
