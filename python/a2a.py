@@ -19,9 +19,9 @@ Seq2.play(T, [cRnd, 500, 550], 200, [cLin, 65, 68], dt = 4)
 
 #mutazione
 T = 40+trasl
-Seq1.play(T, [cRnd, 60, 160], 100, [cLin, 72, 68], dt = 0.3)
-Seq2.play(T, [cRnd, 450, 550], 150, [cLin, 63, 70], dt = 2.6)
-T = Seq3.play(T, [cRnd, 550, 600], 60, [cLin, 65, 70], dt = 2)
+Seq1.play(T, [cRnd, 60, 160], 100, [cLin, 69, 65], dt = 0.3)
+Seq2.play(T, [cRnd, 450, 550], 150, [cLin, 60, 67], dt = 2.6)
+T = Seq3.play(T, [cRnd, 550, 600], 60, [cLin, 62, 67], dt = 2)
 #
 Seq1.play(T, [cRnd, 100, 150], 500, 68, df = [cLin, 600, 40], dt = 0.006)
 Seq1.play(T, [cRnd, 30, 160], 70, [cLin, 58, 53], dt = 0.15)
@@ -34,8 +34,8 @@ T = 204
 #39
 setup(reverse, 9)
 Seq1.play(T, [cRnd, 10500, 15000], 500, 58, df = [cLin, 600, 40], dt = 39/44)
-Seq2.play(T, [cRnd, 2030, 2160], 50, [cLin, 62, 65], dt = 39/5)
-Seq3.play(T, [cRnd, 3450, 3550], 60, [cLin, 65, 67], dt = 39/6.5)
+Seq2.play(T, [cRnd, 2030, 2160], 50, [cLin, 65, 68], dt = 39/5)
+Seq3.play(T, [cRnd, 3450, 3550], 60, [cLin, 65, 69], dt = 39/6.5)
 #climax cutter
 dur = 2
 setup(reverse, [4,3,7,13,9])

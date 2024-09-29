@@ -8,7 +8,7 @@ T = 0
 Seq = seq([nero, azzurro, bianco, azzurro, rosso, giallo, bianco, rosso, bianco],
           [5,    10,      2,      3,       5,     2,      1,      7,     4])#34
 
-azzurro.play(T, 16, 69, 70, 69)
+azzurro.play(T, 16, 70, 40, 69)
 T = 9
 #hf
 Seq.play(T, [cRnd, 100, 600], 150, [cLin, 60, 66], dt = 2, where = 0)

@@ -30,9 +30,9 @@ Seqh.airsim(T, [cRnd, 9000, 10300], 150, [cLin, 55, 62], dt = 0.44)
 #climax
 T = 204
 setup(reverse, 1)
-Seql.play(T, [cRnd, 100, 400], 150, [cRnd, 69, 72], dt = 39/49)
-Seqm.play(T, [cRnd, 1120, 1400], 300, [cRnd, 63, 68], df = [cRnd, -500, 500], dt = 39/28)
-Seqh.play(T, [cRnd, 9000, 10300], 150, [cRnd, 60, 66], dt = 39/32)
+Seql.airsim(T, [cRnd, 100, 400], 150, [cRnd, 69, 72], dt = 39/49)
+Seqm.airsim(T, [cRnd, 1120, 1400], 300, [cRnd, 63, 68], df = [cRnd, -500, 500], dt = 39/28)
+Seqh.airsim(T, [cRnd, 9000, 10300], 150, [cRnd, 60, 66], dt = 39/32)
 
 #climax cutter
 dur = 2
